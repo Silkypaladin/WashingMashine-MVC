@@ -1,8 +1,6 @@
 package controller;
 
-import model.CClothes;
-import model.CContainer;
-import model.CDestroyedClothes;
+import model.*;
 import ui.CWashingMaschineView;
 
 public class CMachineController extends CContainer {
@@ -23,11 +21,14 @@ public class CMachineController extends CContainer {
 
 
     @Override
-    public boolean load(CClothes clothesToWash) {
-        if(getCurrentLoadLevel()+clothesToWash.getWeight() > getMaxWeightCapacity())
+    public boolean load() {
+        double weight = currentWash.getUsersLaundryWeight();
+        if (getCurrentLoadLevel() + weight > getMaxWeightCapacity())
             return false;
         else {
-            setCurrentLoadLevel(getCurrentLoadLevel()+clothesToWash.getWeight());
+            int chosenColour = currentWash.getLaundryColour();
+            createClothes(chosenColour,weight);
+            setCurrentLoadLevel(getCurrentLoadLevel() + weight);
             return true;
         }
     }
@@ -39,11 +40,11 @@ public class CMachineController extends CContainer {
     }
 
     @Override
-    public void wash(int setWashTemperature) {
-        if (clothesToWash.getWashTemperature() >= setWashTemperature) {
+    public void wash(int WashTemperature) {
+        if (clothesToWash.getWashTemperature() >= WashTemperature) {
             clothesToWash.setWashed(true);
-        } else if (clothesToWash.getWashTemperature() < setWashTemperature)
-            clothesToWash = new CDestroyedClothes(getCurrentLoadLevel(),clothesToWash.getWashTemperature());
+        } else if (clothesToWash.getWashTemperature() < WashTemperature)
+            clothesToWash = new CDestroyedClothes(getCurrentLoadLevel());
     }
 
     @Override
@@ -51,11 +52,21 @@ public class CMachineController extends CContainer {
         return clothesToWash.getColour();
     }
 
-    public CClothes getClothesToWash() {
-        return clothesToWash;
+    private void createClothes(int chosenColour, double weight) {
+        switch (chosenColour) {
+            case 1:
+                clothesToWash = new CBlackClothes(weight);
+                break;
+            case 2:
+                clothesToWash = new CWhiteClothes(weight);
+                break;
+            case 3:
+                clothesToWash  = new CColouredClothes(weight);
+                break;
+        }
     }
 
-    public void setClothesToWash(CClothes clothesToWash) {
-        this.clothesToWash = clothesToWash;
+    public void startWashingProcess() {
+        int washTemperature = currentWash.setWashingTemperature();
     }
 }
