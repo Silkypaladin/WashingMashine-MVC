@@ -2,7 +2,7 @@ package model;
 
 public class CColouredClothes extends CClothes {
 
-    public CColouredClothes(double weight, int washTemperature) {
+    public CColouredClothes(double weight) {
         super(weight);
         setWashTemperature(40);
         setColour("COLOURED");
