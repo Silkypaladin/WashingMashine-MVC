@@ -9,6 +9,8 @@ public abstract class CContainer {
     public abstract boolean load(CClothes clothesToWash);
     public abstract CClothes unload();
     public abstract void wash(int setWashTemperature);
+    public abstract String getClothesColour();
+
 
     public void setCurrentLoadLevel(double currentLoadLevel) {
         this.currentLoadLevel = currentLoadLevel;

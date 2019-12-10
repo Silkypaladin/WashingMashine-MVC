@@ -5,12 +5,12 @@ import model.CContainer;
 import model.CDestroyedClothes;
 import ui.CWashingMaschineView;
 
-public class CMachineContainerController extends CContainer {
+public class CMachineController extends CContainer {
 
     private CClothes clothesToWash;
     private CWashingMaschineView currentWash;
 
-    public CMachineContainerController(CClothes clothesToWash, CWashingMaschineView currentWash) {
+    public CMachineController(CClothes clothesToWash, CWashingMaschineView currentWash) {
         this.clothesToWash = clothesToWash;
         this.currentWash = currentWash;
         setCurrentLoadLevel(0);
@@ -44,6 +44,11 @@ public class CMachineContainerController extends CContainer {
             clothesToWash.setWashed(true);
         } else if (clothesToWash.getWashTemperature() < setWashTemperature)
             clothesToWash = new CDestroyedClothes(getCurrentLoadLevel(),clothesToWash.getWashTemperature());
+    }
+
+    @Override
+    public String getClothesColour() {
+        return clothesToWash.getColour();
     }
 
     public CClothes getClothesToWash() {

@@ -1,15 +1,14 @@
 package model;
 
-public abstract class CClothes {
+public class CClothes {
 
     private String colour;
     private double weight;
     private int washTemperature;
     private boolean isWashed;
 
-    public CClothes(double weight, int washTemperature) {
+    public CClothes(double weight) {
         this.weight = weight;
-        this.washTemperature = washTemperature;
         isWashed = false;
     }
 
