@@ -43,4 +43,9 @@ public class CClothes {
     public void setWashed(boolean washed) {
         isWashed = washed;
     }
+
+    public String toString() {
+        String msg = "Ubrania koloru: " + colour + " Czy czyste? " + isWashed;
+        return msg;
+    }
 }

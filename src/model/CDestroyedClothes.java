@@ -6,4 +6,9 @@ public class CDestroyedClothes extends CClothes {
         super(weight);
         setColour("DESTROYED");
     }
+
+    public String toString() {
+        String msg = "O nie, zniszczone ubrania! to pewnie przez zbyt wysoką temperaturę prania.";
+        return msg;
+    }
 }

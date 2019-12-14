@@ -5,13 +5,6 @@ public abstract class CContainer {
     private double currentLoadLevel;
     private static final double MAX_WEIGHT_CAPACITY = 15;
 
-    public abstract boolean isEmpty();
-    public abstract boolean load();
-    public abstract CClothes unload();
-    public abstract void wash(int setWashTemperature);
-    public abstract String getClothesColour();
-
-
     public void setCurrentLoadLevel(double currentLoadLevel) {
         this.currentLoadLevel = currentLoadLevel;
     }
