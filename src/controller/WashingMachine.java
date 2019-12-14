@@ -80,9 +80,4 @@ public class WashingMachine {
         System.out.println("Dziękujemy za skorzystanie z naszego sprzętu!");
         controller.closeInput();
     }
-
-    public static void main(String[] args) {
-        WashingMachine m = new WashingMachine();
-        m.menu();
-    }
 }
