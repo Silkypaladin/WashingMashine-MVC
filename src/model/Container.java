@@ -1,6 +1,6 @@
 package model;
 
-public abstract class CContainer {
+public abstract class Container {
 
     private double currentLoadLevel;
     private static final double MAX_WEIGHT_CAPACITY = 15;

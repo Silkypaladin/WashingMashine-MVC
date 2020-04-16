@@ -1,9 +1,9 @@
-package ui;
+package view;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class CWashingMaschineView {
+public class WashingMaschineView {
 
     private Scanner input = new Scanner(System.in);
 

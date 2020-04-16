@@ -1,8 +1,8 @@
 package model;
 
-public class CBlackClothes extends CClothes {
+public class BlackClothes extends Clothes {
 
-    public CBlackClothes(double weight) {
+    public BlackClothes(double weight) {
         super(weight);
         setWashTemperature(35);
         setColour("BLACK");

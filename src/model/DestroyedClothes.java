@@ -1,8 +1,8 @@
 package model;
 
-public class CDestroyedClothes extends CClothes {
+public class DestroyedClothes extends Clothes {
 
-    public CDestroyedClothes(double weight) {
+    public DestroyedClothes(double weight) {
         super(weight);
         setColour("DESTROYED");
     }

@@ -1,15 +1,15 @@
 package controller;
 
 import model.*;
-import ui.CWashingMaschineView;
+import view.WashingMaschineView;
 
-public class CMachineController extends CContainer {
+public class MachineController extends Container {
 
-    private CClothes clothesToWash;
-    private CWashingMaschineView currentWash;
+    private Clothes clothesToWash;
+    private WashingMaschineView currentWash;
 
-    public CMachineController() {
-        this.currentWash = new CWashingMaschineView();
+    public MachineController() {
+        this.currentWash = new WashingMaschineView();
         setCurrentLoadLevel(0);
     }
 
@@ -30,7 +30,7 @@ public class CMachineController extends CContainer {
         }
     }
 
-    CClothes unload() {
+    Clothes unload() {
         if (isEmpty())
             return null;
         setCurrentLoadLevel(0);
@@ -42,7 +42,7 @@ public class CMachineController extends CContainer {
         if (clothesToWash.getWashTemperature() >= washTemperature) {
             clothesToWash.setWashed(true);
         } else if (clothesToWash.getWashTemperature() < washTemperature)
-            clothesToWash = new CDestroyedClothes(getCurrentLoadLevel());
+            clothesToWash = new DestroyedClothes(getCurrentLoadLevel());
     }
 
 
@@ -55,13 +55,13 @@ public class CMachineController extends CContainer {
     private void createClothes(int chosenColour, double weight) {
         switch (chosenColour) {
             case 1:
-                clothesToWash = new CBlackClothes(weight);
+                clothesToWash = new BlackClothes(weight);
                 break;
             case 2:
-                clothesToWash = new CWhiteClothes(weight);
+                clothesToWash = new WhiteClothes(weight);
                 break;
             case 3:
-                clothesToWash  = new CColouredClothes(weight);
+                clothesToWash  = new ColouredClothes(weight);
                 break;
         }
     }

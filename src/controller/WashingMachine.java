@@ -5,10 +5,10 @@ import java.util.concurrent.TimeUnit;
 
 public class WashingMachine {
 
-    private CMachineController controller;
+    private MachineController controller;
 
     public WashingMachine() {
-        this.controller = new CMachineController();
+        this.controller = new MachineController();
     }
 
     private void loadMachine() {
@@ -54,7 +54,7 @@ public class WashingMachine {
     }
 
     public void menu() {
-        System.out.println("Witaj! Czy chcesz skorzystać z tej inteligentnej pralki marki Szajsung?");
+        System.out.println("Witaj! Zapraszam do skorzystania z moich funkcji.");
         controller.printMenu();
         int choice;
         boolean done = false;
